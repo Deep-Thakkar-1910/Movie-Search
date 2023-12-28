@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+.Movie-Container{
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(3,1fr);
+}
+.MovieCard{
+    cursor: pointer;
+    font-family: "Roboto", "Helvetica Neue",sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width : 22rem; 
+    height: fit-content;
+    background: rgba( 255, 255, 255, 0.25 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border: 1px solid rgba( 50,50, 50, 0.18 );
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    
+}
+.MovieCard:hover{
+    transform: scale(1.05);
+    box-shadow: -2px 2px 14px 0 rgba( 255, 255, 255, 0.15 );
+}
+.MovieCard:hover .movie-type{
+    transition: all 0.8s ease;
+    opacity: 1;
+}
+.MovieCard:hover .movie-year{
+    transition: all 0.8s ease;
+    opacity: 1;
+}
+.MovieCard:hover .movie-title1{
+    transition: all 0.8s ease;
+    opacity: 1;
+    
+}
+.MovieCard:hover .movie-title1::before{
+    transition: all 0.8s ease;
+    width: 100%;
+    opacity: 1;
+    
+}
+.MovieCard:hover .movie-title{
+    /* transition: all 0.3s ease; */
+    opacity: 0;
+}
+
+.MovieCard img{
+    width: 100%;
+    justify-self: stretch;
+    border-radius: 1rem 1rem 0 0;
+    height: 20rem;
+}
+.MovieCard img:hover{
+    opacity: 0.2;
+}
+.MovieCard .movie-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 1rem;
+}
+
+.movie-title,.movie-title1{
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    background:linear-gradient(171deg,#888 13%,#fff 66%);
+    background-clip:text;
+    -webkit-text-fill-color: transparent;
+}
+.movie-title1{
+    opacity: 0;
+    position: absolute;
+    bottom: 0.8rem;
+    left:0.8rem;
+}
+.movie-title1::before{
+    content: " ";
+    opacity: 0;
+    width: 0%;
+    height: 0.25rem;
+    background: linear-gradient(171deg,#888 13%,#fff 66%);
+    border-radius: 3rem;
+    position: absolute;
+    bottom: -0.3rem;
+    left: 0;
+
+}
+.movie-type{
+    text-transform: uppercase;
+    opacity: 0;
+    position: absolute;
+    top: 1rem ;
+    left: 1rem;
+    background:linear-gradient(171deg,#888 13%,#fff 66%);
+    background-clip:text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;   
+}
+
+.movie-year{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    opacity: 0;
+    background:linear-gradient(171deg,#888 13%,#fff 66%);
+    background-clip:text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;   
+}
+
+
+@media screen and (max-width:1024px){
+ .Movie-Container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+ }   
+}
+@media  screen and (max-width:768px){
+    .Movie-Container{
+       display: grid;
+       grid-template-columns: repeat(1,1fr);
+    }   
+}
+@media  screen and (max-width:320px){
+    .MovieCard{
+        width:18rem;
+    }   
+}
