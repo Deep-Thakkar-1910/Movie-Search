@@ -70,7 +70,9 @@ padding: 0 0 0 10px ;
     stroke:#3887BE;
 
 }
-
+ .error-message{
+    font-size: 2rem;
+ }
 .error-message,.loader{
     color:#3887BE;
 } 
@@ -101,6 +103,9 @@ padding: 0 0 0 10px ;
 @media screen and (max-width:320px){
     .search-div{
         width: 19rem;
+    }
+    .error-message{
+        font-size: 1.2rem;
     }
     #search{
         font-size: 0.9rem;
