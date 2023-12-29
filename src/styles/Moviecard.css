@@ -13,17 +13,18 @@
     gap: 1rem;
     width : 22rem; 
     height: fit-content;
-    background: rgba( 255, 255, 255, 0.25 );
+    background: #13649e27;
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
-    border: 1px solid rgba( 50,50, 50, 0.18 );
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
     border-radius: 1rem;
     transition: all 0.3s ease;
     
 }
 .MovieCard:hover{
     transform: scale(1.05);
-    box-shadow: -2px 2px 14px 0 rgba( 255, 255, 255, 0.15 );
+    box-shadow: -2px 2px 14px  rgba( 255, 255, 255, 0.15 );
 }
 .MovieCard:hover .movie-type{
     transition: all 0.8s ease;
@@ -45,7 +46,6 @@
     
 }
 .MovieCard:hover .movie-title{
-    /* transition: all 0.3s ease; */
     opacity: 0;
 }
 

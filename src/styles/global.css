@@ -27,6 +27,7 @@ body{
     background:linear-gradient(171.8deg,#3887BE 33%,#52D3D8 76%);
     background-clip: text;
     color: transparent;
+    filter:drop-shadow(0 5px 1px rgb(0, 0, 0));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -41,11 +42,13 @@ body{
     background-color: #232D3F;
     border: 2px solid #3886be82;
     padding: 1rem 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
 }
 .search-div:focus-within{
     background-color: #111;
     border: 2px solid #3887BE;
+
 }
 #search{
 background: none;
