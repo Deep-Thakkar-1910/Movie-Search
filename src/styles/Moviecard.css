@@ -16,6 +16,7 @@
     background: #13649e27;
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
+    -webkit-tap-highlight-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
     border-radius: 1rem;
