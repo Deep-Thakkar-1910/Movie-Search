@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IoSearch } from "react-icons/io5";
-import { useState,useEffect} from 'react'
+import { useState,useEffect,useRef} from 'react'
 import MovieCardComponent from './components/MovieCardComponent.jsx';
 import Loader from './components/Loader.jsx';
 import './styles/global.css';
@@ -10,11 +10,15 @@ function App() {
   const [searchString, setSearchString] = useState('');
   const [movies,setMovies] = useState([]);
   const [error,setError] = useState(''); 
+  const inputRef = useRef(null);
   const randomGenerator = ["super","spider","walking","runner","ted","hang","dead","john"];
   const random  = Math.trunc(Math.random()*randomGenerator.length);
   
   const handleEnter = (event)=>{
-    if(event.key==='Enter') movieSearch(searchString);
+    if(event.key==='Enter'){
+      movieSearch(searchString);
+      event.target.blur();
+    } 
   }
   
 
@@ -56,9 +60,12 @@ function App() {
       <div className='search-div'>
         <IoSearch className='search-button' onClick={()=>{
           movieSearch(searchString);
+          inputRef.current.blur();
+          
         }
         }/>
         <input id='search'
+        ref={inputRef}
         autoComplete="off"
         placeholder='Search for Movies or Series'
         onChange={
