@@ -1,4 +1,3 @@
-const MOVIE_URL = import.meta.env.VITE_MOVIE_URL;
 import axios from 'axios';
 import { IoSearch } from "react-icons/io5";
 import { useState,useEffect} from 'react'
@@ -20,7 +19,7 @@ function App() {
   
 
   async function initialMovieSearch(string){
-    const response = await axios.get(`${MOVIE_URL}&s=${string}`);
+    const response = await axios.get(`${import.meta.env.VITE_MOVIE_URL}&s=${string}`);
     const data  = response.data;
     return data.Search;
    } // Fetching movies from the api for initial load
@@ -30,7 +29,7 @@ function App() {
     if(string==='')setMovies([]);
     else{
     setError('');
-    const response = await axios.get(`${MOVIE_URL}&s=${string}`);
+    const response = await axios.get(`${import.meta.env.VITE_MOVIE_URL}&s=${string}`);
     const data  = response.data;
     setIsLoading(false);
     if(data.Error){
