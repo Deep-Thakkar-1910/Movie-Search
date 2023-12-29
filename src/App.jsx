@@ -1,4 +1,4 @@
-import MOVIE_URL from '../apiConfig';
+const MOVIE_URL = import.meta.env.VITE_MOVIE_URL;
 import axios from 'axios';
 import { IoSearch } from "react-icons/io5";
 import { useState,useEffect} from 'react'

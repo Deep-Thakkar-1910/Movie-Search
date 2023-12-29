@@ -126,7 +126,7 @@
        grid-template-columns: repeat(1,1fr);
     }   
 }
-@media  screen and (max-width:320px){
+@media  screen and (max-width:425px){
     .MovieCard{
         width:18rem;
     }   
