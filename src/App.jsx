@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { IoSearch } from "react-icons/io5";
 import { useState,useEffect} from 'react'
 import MovieCardComponent from './components/MovieCardComponent.jsx';
@@ -18,29 +17,29 @@ function App() {
   }
   
 
-  async function initialMovieSearch(string){
-    const response = await axios.get(`${import.meta.env.VITE_MOVIE_URL}&s=${string}`);
-    const data  = response.data;
+  async function initialMovieSearch(string) {
+    const response = await fetch(`/.netlify/functions/getMovies?searchString=${string}`);
+    const data = await response.json();
     return data.Search;
-   } // Fetching movies from the api for initial load
-
-  async function movieSearch(string){
-    setIsLoading(true);
-    if(string==='')setMovies([]);
-    else{
-    setError('');
-    const response = await axios.get(`${import.meta.env.VITE_MOVIE_URL}&s=${string}`);
-    const data  = response.data;
-    setIsLoading(false);
-    if(data.Error){
-      setError(data.Error);
-      setMovies([]);
-    }else{
-      setMovies(data.Search);
-      return data.Search;
-    }
   }
-   } // Fetching movies from the api for search
+  
+  async function movieSearch(string) {
+    setIsLoading(true);
+    if (string === '') setMovies([]);
+    else {
+      setError('');
+      const response = await fetch(`/.netlify/functions/getMovies?searchString=${string}`);
+      const data = await response.json();
+      setIsLoading(false);
+      if (data.Error) {
+        setError(data.Error);
+        setMovies([]);
+      } else {
+        setMovies(data.Search);
+        return data.Search;
+      }
+    }
+  } // Fetching movies from the api for search
 
   useEffect(()=>{
     const initial = initialMovieSearch(randomGenerator[random]);
